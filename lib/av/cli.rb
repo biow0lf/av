@@ -4,8 +4,8 @@ module Av
     
     def initialize(options)
       found = []
-      found << 'avconv' if self.detect_command('avprobe')
       found << 'ffmpeg' if self.detect_command('ffmpeg')
+      found << 'avconv' if self.detect_command('avprobe')
       if found.empty?
         raise Av::UnableToDetect, "Unable to detect any supported library"
       else
